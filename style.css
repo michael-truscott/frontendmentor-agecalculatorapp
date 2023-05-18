@@ -3,9 +3,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body {
+    background-color: hsl(0, 0%, 94%);
+}
+
 main {
     min-height: 100vh;
-    background-color: hsl(0, 0%, 94%);
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -71,17 +75,28 @@ main {
 }
 
 .separator {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    height: 96px;
 }
 
 .hr-container {
-    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .hr-container hr {
     border: 1px solid hsl(0, 0%, 86%);
+    width: 100%;
+}
+
+.btn-calculate-container {
+    top: -100%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
 }
 
 .btn-calculate {
@@ -96,6 +111,11 @@ main {
     user-select: none;
 }
 
+.btn-calculate img {
+    width: 50%;
+    height: 50%;
+}
+
 .btn-calculate:hover {
     background-color: hsl(0, 0%, 8%);
 }
@@ -108,4 +128,51 @@ main {
 
 .purple-text {
     color:hsl(259, 100%, 65%)
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        padding: 16px;
+    }
+
+    .age-calculator {
+        width: 100%;
+        padding: 52px 24px;
+    }
+
+    .inputs {
+        gap: 16px;
+    }
+
+    .input-group label {
+        font-size: 12px;
+    }
+
+    .inputs input {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .separator {
+        height: 64px;
+        margin: 20px 0;
+    }
+
+    .hr-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .btn-calculate-container {
+        justify-content: center;
+    }
+
+    .btn-calculate {
+        width: 64px;
+        height: 64px;
+    }
+
+    .results h1 {
+        font-size: 48px;
+    }
 }
