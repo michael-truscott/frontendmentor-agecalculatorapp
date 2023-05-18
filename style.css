@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 94%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.age-calculator {
+    background-color: hsl(0, 0%, 100%);
+    box-sizing: border-box;
+    padding: 56px;
+    width: 840px;
+    border-radius: 25px;
+    border-bottom-right-radius: 35%;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 35px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: hsl(0, 1%, 44%);
+}
+
+.inputs input {
+    box-sizing: border-box;
+    width: 160px;
+    font-size: 32px;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+.separator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.hr-container {
+    flex: 1;
+}
+
+.hr-container hr {
+    border: 1px solid hsl(0, 0%, 86%);
+}
+
+.btn-calculate {
+    width: 96px;
+    height: 96px;
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.results h1 {
+    font-size: 88px;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.purple-text {
+    color:hsl(259, 100%, 65%)
+}

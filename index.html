@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Age calculator app</title>
+</head>
+<body>
+
+  <main>
+    <div class="age-calculator">
+      <div class="inputs">
+        <div class="input-group">
+          <label for="day">Day</label>
+          <input id="day" type="number" placeholder="DD">
+        </div>
+        <div class="input-group">
+          <label for="month">Month</label>
+          <input id="month" type="number" placeholder="MM">
+        </div>
+        <div class="input-group">
+          <label for="year">Year</label>
+          <input id="year" type="number" placeholder="YYYY">
+        </div>
+      </div>
+
+      <div class="separator">
+        <div class="hr-container">
+          <hr>
+        </div>
+        
+        <div class="btn-calculate">
+          <img src="assets/images/icon-arrow.svg" alt="Calculate button">
+        </div>
+      </div>
+
+      <div class="results">
+        <h1><span class="purple-text" id="result-years">- -</span> years</h1>
+        <h1><span class="purple-text" id="result-months">- -</span> months</h1>
+        <h1><span class="purple-text" id="result-days">- -</span> days</h1>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
