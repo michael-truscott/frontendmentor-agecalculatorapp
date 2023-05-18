@@ -20,14 +20,17 @@
         <div class="input-group">
           <label for="day">Day</label>
           <input id="day" type="number" placeholder="DD">
+          <p class="error-text">This field is required</p>
         </div>
         <div class="input-group">
           <label for="month">Month</label>
           <input id="month" type="number" placeholder="MM">
+          <p class="error-text">This field is required</p>
         </div>
         <div class="input-group">
           <label for="year">Year</label>
           <input id="year" type="number" placeholder="YYYY">
+          <p class="error-text">This field is required</p>
         </div>
       </div>
 
@@ -36,7 +39,7 @@
           <hr>
         </div>
         
-        <div class="btn-calculate">
+        <div id="calculate-button" class="btn-calculate">
           <img src="assets/images/icon-arrow.svg" alt="Calculate button">
         </div>
       </div>
@@ -49,5 +52,59 @@
     </div>
   </main>
 
+  <script>
+    document.getElementById("calculate-button").addEventListener("click", (ev) => {
+      const day = document.querySelector(".age-calculator #day").value;
+      const month = document.querySelector(".age-calculator #month").value;
+      const year = document.querySelector(".age-calculator #year").value;
+
+      const validationErrors = performValidation(day, month, year);
+      document.querySelectorAll(".age-calculator .error-text").forEach((element, index) => {
+        if (validationErrors[index] !== null) {
+          element.classList.add("visible");
+        } else {
+          element.classList.remove("visible");
+        }
+        element.innerHTML = validationErrors[index] ?? "";
+      });
+
+      const inputs = document.querySelector(".age-calculator .inputs");
+      if (validationErrors.some((err) => err !== null)) {
+        inputs.classList.add("error");
+        return;
+      } else {
+        inputs.classList.remove("error");
+      }
+      
+      const result = getResult(day, month, year);
+      document.getElementById("result-years").innerHTML = result.years;
+      document.getElementById("result-months").innerHTML = result.months;
+      document.getElementById("result-days").innerHTML = result.days;
+    });
+
+    function performValidation(day, month, year) {
+      let errors = [null, null, null];
+
+      if (day.length === 0) {
+        errors[0] = "This field is required";
+      }
+      if (month.length === 0) {
+        errors[1] = "This field is required";
+      }
+      if (year.length === 0) {
+        errors[2] = "This field is required";
+      }
+      
+      return errors;
+    }
+
+    function getResult(day, month, year) {
+      return {
+        years: 1,
+        months: 2,
+        days: 3,
+      };
+    }
+  </script>
 </body>
 </html>

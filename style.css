@@ -39,6 +39,10 @@ main {
     color: hsl(0, 1%, 44%);
 }
 
+.inputs.error label {
+    color: hsl(0, 100%, 67%);
+}
+
 .inputs input {
     box-sizing: border-box;
     width: 160px;
@@ -46,6 +50,24 @@ main {
     padding: 10px 25px;
     border-radius: 8px;
     border: 1px solid hsl(0, 0%, 86%);
+}
+
+.inputs.error input {
+    border: 1px solid hsl(0, 100%, 67%);;
+}
+
+.inputs input:focus {
+    outline: 1px solid hsl(259, 100%, 65%);
+}
+
+.error-text {
+    color: hsl(0, 100%, 67%);
+    font-style: italic;
+    display: none;
+}
+
+.error-text.visible {
+    display: inline;
 }
 
 .separator {
@@ -72,6 +94,10 @@ main {
     justify-content: center;
     cursor: pointer;
     user-select: none;
+}
+
+.btn-calculate:hover {
+    background-color: hsl(0, 0%, 8%);
 }
 
 .results h1 {
