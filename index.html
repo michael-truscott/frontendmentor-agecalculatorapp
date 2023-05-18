@@ -87,23 +87,74 @@
 
       if (day.length === 0) {
         errors[0] = "This field is required";
-      }
-      if (month.length === 0) {
-        errors[1] = "This field is required";
-      }
-      if (year.length === 0) {
-        errors[2] = "This field is required";
+      } else if (Number(day) < 1 || Number(day) > 31) {
+        errors[0] = "Must be a valid day";
+      } else if (!isValidDate(day, month, year)) {
+        errors[0] = "Must be a valid date";
+        return errors;
       }
       
+      if (month.length === 0) {
+        errors[1] = "This field is required";
+      } else if (Number(month) < 1 || Number(month) > 12) {
+        errors[1] = "Must be a valid month";
+      }
+      
+      if (year.length === 0) {
+        errors[2] = "This field is required";
+      } else if (Number(year) > new Date().getFullYear()) {
+        errors[2] = "Must be in the past";
+      }
+
       return errors;
     }
 
     function getResult(day, month, year) {
+      const dob = new Date(Number(year), Number(month) - 1, Number(day));
+
+      const now = new Date();
+      let days = now.getDate() - dob.getDate();
+      let months = now.getMonth() - dob.getMonth();
+      let years = now.getFullYear() - dob.getFullYear();
+
+      if (days < 0) {
+        const daysInLastMonth = new Date(dob.getFullYear(), dob.getMonth(), 0).getDate();
+        days += daysInLastMonth;
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
       return {
-        years: 1,
-        months: 2,
-        days: 3,
+        years: years,
+        months: months,
+        days: days,
       };
+    }
+
+    // A library probably exists to do this better and handle insane edge cases
+    // but I don't feel like googling for it right now.
+    // Assumes the month is valid and 1-based.
+    function isValidDate(day, month, year) {
+      switch (Number(month)) {
+        case 9: // Thirty days hath September,
+        case 4: // April,
+        case 6: // June,
+        case 11: // and November,
+          return day <= 30;
+
+        default: // All the rest have 31,
+          return day <= 31;
+          
+        case 2: // Except for February,
+          if (year % 4 != 0) {
+            return day <= 28; // which has 28 days,
+          } else {
+            return day <= 29; // and 29 in each leap year.
+          }
+      }
     }
   </script>
 </body>
